@@ -1,53 +1,30 @@
 """
 LeetCode: Keyboard Row
 
-Problem Description
--------------------
-Given a list of strings `words`, return all words that can be typed using letters
-from only one row of the American keyboard. The check is case-insensitive:
-uppercase and lowercase versions of a letter are treated the same.
+Given `words`, return the words that can be typed using letters from only ONE
+row of the American keyboard (case-insensitive).
 
-Keyboard rows:
-    Row 1: "qwertyuiop"
-    Row 2: "asdfghjkl"
-    Row 3: "zxcvbnm"
+Approach
+--------
+- Build 3 `set`s for the keyboard rows (fast membership checks: `ch in row`).
+- For each word:
+  1) Convert to lowercase with `.lower()`.
+  2) Pick the target row based on the first letter.
+  3) Keep the word only if every character is in that same row.
 
-A word is valid if every character in the word belongs to the same row.
-
-Examples:
-    Input:  ["Hello", "Alaska", "Dad", "Peace"]
-    Output: ["Alaska", "Dad"]
-
-    Input:  ["omk"]
-    Output: []
-
-    Input:  ["adsdf", "sfd"]
-    Output: ["adsdf", "sfd"]
-
-
-Solution Overview
------------------
-This solution uses set membership to quickly determine whether all letters in a
-word come from a single keyboard row.
-
-Algorithm Steps
----------------
-1) Build three sets representing the letters in each keyboard row.
-2) For each word:
-   a) Convert it to lowercase for case-insensitive comparison.
-   b) Identify the target row based on the word's first character.
-   c) Check every character:
-      - If any character is not in the target row, the word is invalid.
-      - If all characters are in the target row, keep the original word.
-3) Return the collected valid words.
+Cheat Sheet Items Used
+----------------------
+- Sets: `set("qwertyuiop")`, membership check `ch in row`
+- Strings: `.lower()`
+- Loops: `for ... in ...`
+- Built-ins: `all(...)`
+- Lists: `ans = []`, `ans.append(w)`
 
 Complexity
 ----------
-Let N be the number of words and L be the maximum word length.
-Time:  O(N * L)  (each character checked once)
-Space: O(1)      (constant extra space; row sets are fixed size)
+Time:  O(N * L)  where N = number of words, L = max word length
+Space: O(1)      (row sets are constant size)
 """
-
 
 from typing import List
 

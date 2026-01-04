@@ -1080,8 +1080,3 @@ def kmp_search(text, pattern):
 8. **When to use Backtracking**: Generate all solutions, constraint satisfaction
 9. **When to use Heap**: K largest/smallest, priority-based processing
 10. **When to use Trie**: String prefix matching, dictionary problems
-
----
-
-*Last updated: 2024*
-
